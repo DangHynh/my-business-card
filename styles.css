@@ -1,0 +1,66 @@
+#dog {
+    width:200px;
+    border-radius:40% 80%;
+}
+h1, h2 {
+    text-align: center;
+    width: auto;
+    font-family: sans-serif;
+}
+.card {
+    width: 300px;
+    margin:auto;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 10px;
+    background-color:rgba(255, 126, 212, 0.5);
+    box-shadow: 5px 5px 6px #FF3EA5;
+    transition: 1s;
+}
+
+.icon {
+    width:30px;
+    vertical-align: middle;
+    margin-right:10px;
+}   
+
+body {
+    background:linear-gradient(to right, #6420AA,#FF3EA5,#FFB5DA)
+}
+
+.card:hover {
+    transform:scale(1.05);
+    box-shadow: 15px 15px 6px #FF3EA5;
+}
+
+a {
+    text-decoration:none;
+    color:black;
+}
+
+.Contact {
+    transition: icon 0.5s;
+}
+.Contact p:hover {
+    
+}
+
+.icon:hover {
+    animation: shake 0.3s linear 2 alternate;
+}
+.Contact p {
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 5px;
+    width: 200px;
+    margin: 5px auto;
+}
+
+@keyframes shake {
+    0% { transform:rotate(0deg);}
+    25% { transform:rotate(10deg);}
+    50% { transform:rotate(0deg);}
+    75% { transform:rotate(-10deg);}
+    100% { transform:rotate(0deg);}
+}
