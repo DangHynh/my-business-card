@@ -42,9 +42,7 @@ a {
 .Contact {
     transition: icon 0.5s;
 }
-.Contact p:hover {
-    
-}
+
 
 .icon:hover {
     animation: shake 0.3s linear 2 alternate;
