@@ -7,6 +7,9 @@ h1, h2 {
     width: auto;
     font-family: sans-serif;
 }
+p {
+    font-family:Arial, Helvetica, sans-serif;
+}
 .card {
     width: 300px;
     margin:auto;
@@ -15,8 +18,11 @@ h1, h2 {
     border-radius: 15px;
     padding: 10px;
     background-color:rgba(255, 126, 212, 0.5);
-    box-shadow: 5px 5px 6px #FF3EA5;
+    box-shadow: 5px 5px 6px #aa296e;
     transition: 1s;
+    color:black;
+    animation: scale 1s ease-out, color 1s 1s linear;
+    animation-fill-mode: forwards;
 }
 
 .icon {
@@ -26,32 +32,39 @@ h1, h2 {
 }   
 
 body {
-    background:linear-gradient(to right, #6420AA,#FF3EA5,#FFB5DA)
+    background:linear-gradient(to right, #6420AA,#FF3EA5,#FFB5DA);
+    background-size: 160% 100%;
+    transition:2s;
 }
 
-.card:hover {
+.card:hover, card:focus {
     transform:scale(1.05);
-    box-shadow: 15px 15px 6px #FF3EA5;
+    box-shadow: 15px 15px 6px #aa296e;
+}
+
+body:has(>.card:hover){
+    background-position:100% 100%;
 }
 
 a {
     text-decoration:none;
     color:black;
+    animation:color 1s 1s linear;
+    animation-fill-mode:forwards;   
 }
 
-.Contact {
-    transition: icon 0.5s;
-}
-
-
-.icon:hover {
+#email:hover .icon {
     animation: shake 0.3s linear 2 alternate;
 }
+#phone:hover .icon {
+    animation: shake 0.3s linear 2 alternate;
+}
+
 .Contact p {
     border: 2px solid black;
     border-radius: 25px;
     padding: 5px;
-    width: 200px;
+    width: 80%;
     margin: 5px auto;
 }
 
@@ -61,4 +74,16 @@ a {
     50% { transform:rotate(0deg);}
     75% { transform:rotate(-10deg);}
     100% { transform:rotate(0deg);}
+}
+
+@keyframes scale {
+    0% {transform: scale(0.9);}
+    50% {transform: scale(1.05);}
+    100% {transform: scale(1);}
+}
+
+@keyframes color {
+    0% {color:black;}
+    50% {color:gray;}
+    100% {color:white;}
 }
