@@ -6,25 +6,42 @@ h1, h2 {
     text-align: center;
     width: auto;
     font-family: sans-serif;
+    transition:1s;
 }
+
+
 p {
     font-family:Arial, Helvetica, sans-serif;
 }
 .card {
     width: 300px;
-    margin:auto;
     text-align: center;
-    border: 2px solid black;
     border-radius: 15px;
     padding: 10px;
-    background-color:rgba(255, 126, 212, 0.5);
-    box-shadow: 5px 5px 6px #aa296e;
-    transition: 1s;
+    margin-top:6px;
+    background-color:rgb(238, 153, 209);
     color:black;
-    animation: scale 1s ease-out, color 1s 1s linear;
-    animation-fill-mode: forwards;
+    transition: 1s;
+    position:absolute;
+    z-index:2;
+    animation: scaleIn 1s ease-in-out;
+
 }
 
+#border {
+    position:absolute;
+    z-index:1;
+    display:block;
+    width:310px;
+    height:540px;
+    padding:12px;
+    border-radius:16px;
+    background:linear-gradient(45deg, #FD3DA5, #FF5984, #FFD356, #F9F871);
+    background-size: 300%, 300%;
+    transition:1s;
+    box-shadow: 10px 10px 6px #8d255c;
+
+}
 .icon {
     width:30px;
     vertical-align: middle;
@@ -32,24 +49,31 @@ p {
 }   
 
 body {
-    background:linear-gradient(to right, #6420AA,#FF3EA5,#FFB5DA);
-    background-size: 160% 100%;
+    background:linear-gradient(90deg, #6420AA, #C60090, #FF3EA5, #FF7ED4, #FFB5DA);
+    background-size: 200% 200%;
     transition:2s;
 }
 
-.card:hover, card:focus {
-    transform:scale(1.05);
-    box-shadow: 15px 15px 6px #aa296e;
+body:has(.card:hover){
+    background-position: 100% 100%;
+
 }
 
-body:has(>.card:hover){
-    background-position:100% 100%;
+.card:hover~#border {
+    box-shadow: 20px 20px 7px #aa296e;
+    transform:scale(1.2);
+    animation: gradient 1.5s linear infinite;
+}
+.card:hover {
+    transform:scale(1.2);
+    background-color:#FF9CBC;
 }
 
-a {
+
+a, p, h2, h3 {
     text-decoration:none;
     color:black;
-    animation:color 1s 1s linear;
+    animation:color 0.5s 1s ease-in;
     animation-fill-mode:forwards;   
 }
 
@@ -60,12 +84,24 @@ a {
     animation: shake 0.3s linear 2 alternate;
 }
 
+#facebook:hover .icon {
+    animation: shake 0.3s linear 2 alternate;
+}
 .Contact p {
     border: 2px solid black;
     border-radius: 25px;
     padding: 5px;
     width: 80%;
     margin: 5px auto;
+}
+
+
+.container {
+    display:flex;
+    justify-content:center;
+}
+body:has(.card:hover) h1{
+    opacity:0;
 }
 
 @keyframes shake {
@@ -76,14 +112,33 @@ a {
     100% { transform:rotate(0deg);}
 }
 
-@keyframes scale {
-    0% {transform: scale(0.9);}
-    50% {transform: scale(1.05);}
+@keyframes scaleIn {
+    0% {transform: scale(0.8);}
+    50% {transform: scale(1.1);}
     100% {transform: scale(1);}
 }
 
 @keyframes color {
-    0% {color:black;}
-    50% {color:gray;}
+    0% {color:black}
     100% {color:white;}
 }
+
+
+@keyframes gradient {
+    0% {
+		background-position: top left;
+	}
+	25% {
+		background-position: top right;
+	}
+    50% {
+        background-position: bottom right;
+    }
+	75% {
+		background-position: bottom left;
+    }
+    100% {
+        background-position: top left;
+    }
+}
+
